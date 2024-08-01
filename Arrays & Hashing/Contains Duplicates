@@ -1,0 +1,17 @@
+Q. Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+
+Soln:
+
+  Set is a ds that contains no duplicates elements. So by putting elements that are not present in the set and checking if an element is already present is the main intution. If it is present return TRUE.
+
+  class Solution {
+  public:
+      bool containsDuplicate(vector<int>& nums) {
+          set<int>st;  
+          for(int elem : nums){
+              if(st.find(elem) != st.end()) return true;
+              st.insert(elem);
+          }
+          return false;
+      }
+  };
