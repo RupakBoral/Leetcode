@@ -1,0 +1,17 @@
+class Solution {
+public:
+    TreeNode* helper(TreeNode* &root){
+        if(root == NULL) return NULL;
+        if(root-> left == NULL && root->right == NULL) return root;
+        TreeNode* leftTree = helper(root->left);
+        TreeNode* rightTree = helper(root->right);
+        root->left = rightTree;
+        root->right = leftTree;
+        return root;
+    }
+    TreeNode* invertTree(TreeNode* root) {
+        if(root == NULL) return NULL;
+        helper(root);
+        return root;
+    }
+};
