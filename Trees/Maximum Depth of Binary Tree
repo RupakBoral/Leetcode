@@ -1,0 +1,7 @@
+class Solution {
+public:
+    int maxDepth(TreeNode* root) {
+        if(root == NULL) return 0;
+        return 1 + max(maxDepth(root->left), maxDepth(root->right)); // if its not NULL, then that means we encountered 1 node, thus adding one to the ans
+    }
+};
